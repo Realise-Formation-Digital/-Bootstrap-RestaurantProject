@@ -37,6 +37,7 @@ body {
     height: 200px;
     border: 1px solid #f1f1f1;
     perspective: 1000px;
+    
   }
   
   
@@ -70,4 +71,7 @@ body {
     background-color: rgb(29, 97, 29);
     color: white;
     transform: rotateY(180deg);
+    
   }
+
+ 
