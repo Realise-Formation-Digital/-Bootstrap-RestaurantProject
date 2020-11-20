@@ -19,6 +19,16 @@ body {
     padding: 0;
 }
 
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 5em;
+}
+
+h3 {
+  font-family: 'Lobster', cursive;
+  font-size: 3em;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -68,10 +78,9 @@ body {
   }
   
   .flip-box-back {
-    background-color: rgb(29, 97, 29);
+    background-color: rgb(92, 22, 37);
     color: white;
-    transform: rotateY(180deg);
-    
+    transform: rotateY(180deg);    
   }
 
  
