@@ -1,0 +1,95 @@
+
+
+.titles{
+    color: black;
+    
+}
+
+
+
+
+.imagePlat{
+    width: 80%;
+    border-radius: 10%;  
+}
+
+
+main{
+    background-color: grey;
+
+    
+
+}
+
+.card-body{
+    background-color: rgb(12, 12, 12);
+    border-radius: 10%;
+}
+
+
+.noir{
+    background-color: rgba(0, 174, 255, 0);
+}
+
+.card-bg-transparent{
+    background-color: transparent !important;
+    border: transparent !important;
+    background-color: rgb(119, 119, 119) !important ;
+    border-radius: 10%;
+    
+}
+
+.card-header-bg{
+    background-color: grey !important; 
+    margin-bottom: 0% !important;
+    margin-top: 0% !important;
+    margin-left: 0% !important;
+    margin-right: 0% !important;
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    border-radius: 10% !important ;
+    
+}
+
+
+
+
+.imageVin{
+    width: 80%;
+    border-radius: 10%;
+}
+
+
+.leftBorder{
+    margin-left: 25%;
+}
+
+
+.rightBorder{
+    margin-right: 5%;
+}
+
+
+.imageRestaurant{
+    width: 60%;
+    border-radius: 10%;
+
+}
+
+
+.justify{
+       text-align: justify;
+
+}
+
+
+.button1{
+    text-align: center;
+}
+
+
+.textejsp{
+    margin-left: 5%;
+}
