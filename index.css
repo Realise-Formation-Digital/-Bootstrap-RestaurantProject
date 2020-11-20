@@ -1,0 +1,25 @@
+.p {
+    display: flex;
+    color: black;
+    text-indent: 30px;
+    text-transform: uppercase; 
+    place-content: center;
+  }
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .B {
+     float: left;
+  }
+  
+  .s {
+      float: right;
+  }
+
+  .L {
+      float: right;
+  }
