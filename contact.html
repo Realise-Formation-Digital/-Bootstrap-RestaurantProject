@@ -10,9 +10,6 @@
     <meta name="author" content="">
     <title>CopyPasta Restaurant - Infos Pratiques</title>
 
-    <!-- START Openlayers map API -->
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
-
     <style>
 
         .map {
@@ -33,10 +30,58 @@
     <!-- Bootstrap fontawesome icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
+    <link type="text/css" rel="stylesheet" href="/css/aPropos.css">
+    <link type="text/css" rel="stylesheet" href="/css/carteRestaurant.css">
+    <link type="text/css" rel="stylesheet" href="/css/copyPasta.css">
+    <link type="text/css" rel="stylesheet" href="/css/index.css">
 </head>
 
 <body class="">
+
+<!-- banderole vidéo -->
+<header>
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="../BooststrapAbreha/images/Banderole vidéo.mp4" type="video/mp4">
+    </video>
+    <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-white">
+                <h1 class=" display-4"></h1>
+                <p class="lead mb-0"></p>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- LOGO + NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="main-nav">
+    <div class="container">
+        <div class="fonts">
+            <a href="index.html" class="navbar-brand">CopyPasta</a>
+        </div>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-1">
+                    <a href="/index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item mr-1">
+                    <a href="/apropos.html" class="nav-link">A Propos</a>
+                </li>
+                <li class="nav-item mr-1">
+                    <a href="/carteRestaurant.html" class="nav-link">Carte des Plats</a>
+                </li>
+                <li class="nav-item mr-1">
+                    <a href="/contact.html" class="nav-link">Infos Pratiques</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <div class="" style="margin:14px;">
 
@@ -437,7 +482,8 @@
 
 <!-- Openlayers custom scripts -->
 <script src="js/openLayers.js"></script>
-
+<!-- START Openlayers map API -->
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
 <!-- Bootstrap scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
