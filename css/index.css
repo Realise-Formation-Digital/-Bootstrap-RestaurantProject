@@ -99,13 +99,32 @@ main{
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: black;
+    background-image: url("/public/images/home/Resto/Joli-restaurant.jpg");
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: .3rem;
     outline: 0;
-    color: black;
+    color: white;
 }
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border-color: rgb(90 13 26);
+}
+
+
 
 .btn {
     display: inline-block;
@@ -117,7 +136,7 @@ main{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #007bff;
+    background-color: rgb(90 13 26);
     border: 1px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -126,6 +145,15 @@ main{
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color:white;
+    opacity: 0.5;
+
+}
 
 /********************************************************************HEADER****************************************************************************************/
 header {
