@@ -92,7 +92,7 @@ main{
 }
 
 .modal-content{
-    osition: relative;
+    position: relative;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -104,7 +104,7 @@ main{
     border: 1px solid rgba(0,0,0,.2);
     border-radius: .3rem;
     outline: 0;
-    color: white;
+    color: black;
 }
 
 .btn {
