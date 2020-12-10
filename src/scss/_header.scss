@@ -1,6 +1,6 @@
 //Button raise effect
-.raise:hover,
-.raise:focus {
+.btn .bg-dark:hover,
+.btn .btn-primary:focus {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   transform: translateY(-0.25em);
 }
