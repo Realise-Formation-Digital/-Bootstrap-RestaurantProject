@@ -32,10 +32,18 @@
 
 <body class="">
 <?php
-    
+    if(isset($_POST["submit"])) { // Le formulaire a été envoyé
+        if (empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+            echo '<script>alert("Votre adresse email est invalide")</script>';
+        } else {
+            //print_r($_POST);
+            $fp = fopen('messages.csv', 'a');
 
-    if(isset($_POST["submit"])) { // Le formulaire as ete envoyer
-        print_r($_POST);
+            fputcsv($fp, $_POST);
+            
+            fclose($fp);
+            echo '<script>alert("Votre message a été envoyé")</script>';
+        }
     }
 ?>
 
@@ -118,12 +126,8 @@
 
                             <div class="mb-3">
                                 <label for="email">Email</span></label>
-                                <input type="email" class="form-control" name="email"  id="email"
-                                       placeholder=" votreNom@votreDomain.com" required>
-
-                                <div class="invalid-feedback">
-                                    Entrez un email valide.
-                                </div>
+                                <input type="text" class="form-control" name="email"  id="email"
+                                       placeholder=" votreNom@votreDomain.com">
 
                             </div>
 
