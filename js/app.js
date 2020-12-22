@@ -27,7 +27,7 @@ function validatePassword() {
 const form = document.querySelector('form');
 const signinButton = document.querySelector('button#sign-in');
 
-form.addEventListener('submit', handleFormSubmission);                       
+// form.addEventListener('submit', handleFormSubmission);                       
 
 function handleFormSubmission(event) {
   event.preventDefault();

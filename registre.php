@@ -1,3 +1,4 @@
+<?php require 'functions.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,52 @@
     <link type="text/css" rel="stylesheet" href="/css/index.css">
     <title>Home Page CopyPasta</title>
 </head>
-<body>
+
+<!-- Validadtion   -->
+
+<?php
+
+    $errors = array();
+ 
+if(isset($_POST["submit"])) { // Le formulaire a été envoyer
+    // Vérification du nom 
+    if (empty($_POST["pseudo"]) || !preg_match ('/[a-zA-Z09_]+/', $_POST["pseudo"])) { 
+        $errors['pseudo'] = "Votre nom est invalide ";
+    }
+
+    // Vérification email 
+    if (empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        echo '<script>alert("Votre adresse email est invalide")</script>';
+        $errors['email'] = "Votre adresse email est invalide";
+    }
+
+    // Vérification password
+    if (empty($_POST["password"]) || $_POST["password"] != $_POST["password_confirm"]){
+        $errors['password'] = "Vous devez rentrer un mot de passe valide";
+    } else {
+
+        $_password_crypt = password_hash ($_POST["password"], PASSWORD_BCRYPT);
+        $_POST["password"] = $_password_crypt;
+        $_POST["password_confirm"] = $_password_crypt;
+       
+    }
+    // debug($errors);
+   //  print_r($_POST);
+
+    if (empty($errors)) {
+    
+       // print_r($_POST);
+          $fp = fopen('users.csv', 'a');
+      
+          fputcsv($fp, [$_POST["pseudo"] , $_POST["email"], $_POST["password"]]);
+          
+          fclose($fp);
+          echo '<script>alert("Votre compte a bien été créé")</script>';
+       }
+}
+?>
+
+<Body>
 
 <!-- banderole vidéo -->
 <header>
@@ -47,18 +93,126 @@
                 </li>
                 <li class="nav-item mr-1">
                     <a href="info.html" class="nav-link">Infos Pratiques</a>
-                    <!--<a href="contact.php" class="nav-link">Contact</a>-->   
+                    <!--<a href="contact.php" class="nav-link">Contact</a>-->
                 </li>
                 <li class="nav-item mr-1">
                     <a href="contact.php" class="nav-link">Contact</a>
                 </li>
-                <li class="navbar-nav ml-auto">
-                    <a href="registre.php" class="nav-link">Login</a>
-                </li>
             </ul>
         </div>
     </div>
+     
+    <!-- Modal Login Button-->
+    <!-- <div class="container">  -->
+        <ul class="navbar-nav ml-auto"> 
+                 <li class="nav-item mr-1">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Login
+                      </button>
+                </li>
+                <li class="nav-item mr-1">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+                        S'inscrire
+                      </button>
+                </li>
+        </ul>
+  <!--   </div> -->
 </nav>
+ 
+<div class="container">  
+<div class="modal" id="myModal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+  
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">S'inscrire</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+  
+         <!-- Modal Body -->
+         <!--  -->
+            <div class="modal-body">
+                <!--  <form action="/index.html"  method="post" onsubmit="checkValidity();">  -->
+               
+                <form class="needs-validation" action="" method="POST" >
+                
+                <div class="form-group">
+                      <label for="nom">Pseudo</span></label>
+                      <input type="text" name="pseudo" class="form-control" placeholder="">
+
+                      <div class="invalid-feedback">
+                         Entrez un email valide.
+                      </div>
+                    </div>
+                
+                    <div>
+                      <label for="email">Email</span></label>
+                      <input type="text" name="email" class="form-control" placeholder="">
+
+                      <div class="invalid-feedback">
+                         Entrez un email valide.
+                      </div>
+                    </div>
+
+                    <div>
+                      <label for="Mot de passe">Password:</label>
+                      <input type="password" name="password" class="form-control" placeholder="" minlength="8">
+                    </div>
+                    
+                    <div class=>
+                      <label for="Confirmez votre mot de passe">Password:</label>
+                      <input type="password" name="password_confirm" class="form-control" placeholder="" minlength="8">
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-default">Valider</button>
+                    <!-- <div class="form-group"> -->
+                        <!-- <button type="submit" name="submit" class="btn btn-default">Soumettre</button>  -->
+                       
+                    <!-- </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Login</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <!--  <form action="/index.php"  method="post" onsubmit="checkValidity();">  -->
+            <form class="needs-validation" action="/index.php" method="POST" >
+                <div class="form-group">
+                    <label for="email">Email</span></label>
+                    <input type="email" class="form-control" id="email autocomplete="username name="email" 
+                        placeholder=" votreNom@votreDomain.com" required autofocus>
+
+                    <div class="invalid-feedback">
+                        Entrez un email valide.
+                    </div>
+
+                </div>
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" class="form-control" id="password" autocomplete="password" placeholder="votre password" minlength="8" required >
+                </div>
+                <button type="submit" class="btn btn-default">Soumettre</button>
+              </form>
+            </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- LOGO + NAVBAR 2 -->
 
 
 <!-- Section seconde bannière image -->
@@ -87,154 +241,6 @@
 
 <!-- Fin HEADER----------------------------------------------------------------------------------- -->
 
-<main>
-    <br><br><br><br><br>
-    <section>
-
-
-        <div class="container titles">
-
-            <div class="row text-center">
-
-                <div class="col-6">
-
-                    <div class="card card-bg-transparent">
-
-                        <div class="card-header card-bg-transparent">
-
-                            <a class="primary titles" href="carteRestaurant.html#primi">
-                                <h1 class="noir">Nos Plats</h1>
-                            </a>
-                        </div>
-
-                        <div class="card-body card-body-bg">
-                            <p class="card-text">
-
-                                <a href="carteRestaurant.html#primi">
-
-                                    <img class="imagePlat" src="public/images/home/Plats/Pasta/spaghetti-1.jpg"
-                                         alt="Plat">
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-6">
-
-                    <div class="card card-bg-transparent">
-
-                        <div class="card-header card-bg-transparent">
-
-                            <a class="primary titles" href="carteRestaurant.html#vins">
-                                <h1 class="noir">Nos Vins</h1>
-                            </a>
-                        </div>
-
-                        <div class="card-body card-body-bg">
-                            <p class="card-text">
-                                <a href="carteRestaurant.html#vins">
-                                    <img class="imageVin" src="public/images/home/Plats/Vin-1.jpg" alt="Vin">
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <br><br><br>
-
-        </div>
-
-
-        <br><br><br>
-
-
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-6">
-                    <a href="../APropos/index.html"><img class="imageRestaurant leftBorder"
-                                                         src="public/images/home/Resto/Resto-1.jpg" alt="Restaurant"></a>
-                </div>
-
-
-                <div class="col-5 rightBorder justify">
-                    <p>
-                    <h2 class="titles">CopyPasta Ristorante</h2>
-                    <h4> Les pâtes fraîches et les pizzas figurent parmi les nombreuses spécialités Italiennes de
-                        CopyPasta Ristorante. Savourez les délices traditionnels d’Italie concoctés avec joie et bonne
-                        humeur. </h4>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-
-        <br><br><br><br>
-
-
-        <a href="carteRestaurant.html#suggestion">
-            <div class="button1">
-                <button type="button" class="btn btn-light"><h1>Plat du jour</h1></button>
-            </div>
-        </a>
-
-
-        <br><br><br><br>
-
-
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-5 justify textejsp">
-                    <p>
-                    <h2 class="titles">Lorem ipsum</h2> <br>
-                    <h4>Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent
-                        delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos erant
-                        dolorum an. Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at
-                        vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit.
-                        Eos erant dolorum an.</h4>
-                    </p>
-                </div>
-
-                <div class="col-6">
-                    <img class="imageRestaurant" src="public/images/home/Resto/Vin-1.jpg" alt="?">
-                </div>
-
-            </div>
-        </div>
-
-
-        <br><br><br><br><br><br>
-
-
-        <!--
-            CONTAINER 3  (MERCREDI À 23H22)
-        <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-5 texteRestaurant texte2">
-            <br><br><br><br>
-                                <p><h2>Présentation</h2> <br>
-                                    <h4>Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae legendos at vix ad putent delectus delicata usu. Vidit dissentiet eos cu eum an brute copiosae hendrerit. Eos erant dolorum an.
-                                    </h4>
-                                </p>
-                            </div>
-                            <div class="col-6">
-                                <img class="imageRestaurant" src="Gallerie d'image/Resto/Resto-1.jpg" alt="Restaurant">
-                            </div>
-                        </div>
-                    </div>
-        -->
-
-
-        </div>
-    </section>
-</main>
-
 
 <!----------- Footer ------------>
 <div class="">
@@ -260,7 +266,6 @@
                         <li><a href="#">A Propos</a></li>
                         <li><a href="#">La Carte des Plats</a></li>
                         <li><a href="#">Infos Pratiques</a></li>
-
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -315,12 +320,5 @@
 <!-- Scripts Javascript -->       
 <script src="js/app.js"></script>
 
-</body>
+</Body>
 </html>
-
-
-<!--
-         <div class="col">
-                        <button type="button" class="btn btn-light"><h2>Plat du jour</h2></button>
-                    </div>
--->

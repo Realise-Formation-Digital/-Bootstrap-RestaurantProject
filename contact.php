@@ -28,11 +28,11 @@
 
     <!-- Bootstrap fontawesome icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-   </head>
+</head>
 
-<body class="">
+
 <?php
-    if(isset($_POST["submit"])) { // Le formulaire a été envoyé
+    if(isset($_POST["submit"])) { // Le formulaire as ete envoyer
         if (empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
             echo '<script>alert("Votre adresse email est invalide")</script>';
         } else {
@@ -74,7 +74,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mr-1">
-                    <a href="index.html" class="nav-link">Accueil</a>
+                    <a href="index.php" class="nav-link">Accueil</a>
                 </li>
                 <li class="nav-item mr-1">
                     <a href="apropos.html" class="nav-link">A Propos</a>
@@ -88,6 +88,10 @@
                 <li class="nav-item mr-1">
                     <a href="contact.php" class="nav-link">Contact</a>
                 </li>
+                <li class="navbar-nav ml-auto">
+                    <a href="registre.php" class="nav-link">Login</a>
+                </li>
+ 
             </ul>
         </div>
     </div>
