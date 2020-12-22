@@ -19,8 +19,7 @@ if (empty($_POST)) {
 }
  
 
-//if(isset($_POST["submit"])) { // Le formulaire a été envoyer
-if (true) {
+if(isset($_POST["submit"])) { // Le formulaire a été envoyer
     // Vérification du nom 
     if (empty($_POST["pseudo"]) || !preg_match ('/[a-zA-Z09_]+/', $_POST["pseudo"])) { 
         $errors['pseudo'] = "Votre nom est invalide ";
@@ -48,7 +47,7 @@ if (true) {
     if (empty($errors)) {
     
         print_r($_POST);
-          $fp = fopen('msg.csv', 'a');
+          $fp = fopen('users.csv', 'a');
       
           fputcsv($fp, $_POST);
           
@@ -123,7 +122,7 @@ if (true) {
   <!--   </div> -->
 </nav>
  
-
+<div class="container">  
 <div class="modal" id="myModal1">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -139,7 +138,7 @@ if (true) {
             <div class="modal-body">
                 <!--  <form action="/index.html"  method="post" onsubmit="checkValidity();">  -->
                
-                <form class="needs-validation" action="/index.php" method="POST" >
+                <form class="needs-validation" action="" method="POST" >
                 
                 <div class="form-group">
                       <label for="nom">Pseudo</span></label>
@@ -150,7 +149,7 @@ if (true) {
                       </div>
                     </div>
                 
-                    <div class="form-group">
+                    <div>
                       <label for="email">Email</span></label>
                       <input type="text" name="email" class="form-control" placeholder="">
 
@@ -159,12 +158,12 @@ if (true) {
                       </div>
                     </div>
 
-                    <div class="form-group">
+                    <div>
                       <label for="Mot de passe">Password:</label>
                       <input type="password" name="password" class="form-control" placeholder="" minlength="8">
                     </div>
                     
-                    <div class="form-group">
+                    <div class=>
                       <label for="Confirmez votre mot de passe">Password:</label>
                       <input type="password" name="password_confirm" class="form-control" placeholder="" minlength="8">
                     </div>
@@ -178,7 +177,7 @@ if (true) {
         </div>
     </div>
 </div>
-
+</div>
 
 <div class="modal" id="myModal">
     <div class="modal-dialog">
