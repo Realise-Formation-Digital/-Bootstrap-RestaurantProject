@@ -38,12 +38,12 @@ if(isset($_POST["submit"])) { // Le formulaire a été envoyer
         $_POST["password_confirm"] = $_password_crypt;
        
     }
-    debug($errors);
-    print_r($_POST);
+    // debug($errors);
+   //  print_r($_POST);
 
     if (empty($errors)) {
     
-        print_r($_POST);
+       // print_r($_POST);
           $fp = fopen('users.csv', 'a');
       
           fputcsv($fp, [$_POST["pseudo"] , $_POST["email"], $_POST["password"]]);
