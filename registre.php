@@ -14,11 +14,8 @@
 
 <?php
 
-if (empty($_POST)) {
     $errors = array();
-}
  
-
 if(isset($_POST["submit"])) { // Le formulaire a été envoyer
     // Vérification du nom 
     if (empty($_POST["pseudo"]) || !preg_match ('/[a-zA-Z09_]+/', $_POST["pseudo"])) { 
@@ -49,7 +46,7 @@ if(isset($_POST["submit"])) { // Le formulaire a été envoyer
         print_r($_POST);
           $fp = fopen('users.csv', 'a');
       
-          fputcsv($fp, $_POST);
+          fputcsv($fp, [$_POST["pseudo"] , $_POST["email"], $_POST["password"]]);
           
           fclose($fp);
           echo '<script>alert("Votre compte a bien été créé")</script>';
