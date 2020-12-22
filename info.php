@@ -32,6 +32,30 @@
 
 <body class="">
 
+<?php
+  pre_r($_POST);
+?>
+
+<!-- Vérification email et --> 
+
+<?php
+    if(isset($_POST["submit"])) { // Le formulaire as ete envoyer
+        if (empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+            echo '<script>alert("Votre adresse email est invalide")</script>';
+        } else {
+            print_r($_POST);
+            $fp = fopen('msg.csv', 'a');
+
+            fputcsv($fp, $_POST);
+            
+            fclose($fp);
+            echo '<script>alert("Votre message a été envoyé")</script>';
+        }
+    }
+?>  
+
+
+
 <!-- banderole vidéo -->
 <header>
     <div class="overlay"></div>
@@ -68,13 +92,10 @@
                     <a href="carteRestaurant.html" class="nav-link">Carte des Plats</a>
                 </li>
                 <li class="nav-item mr-1">
-                    <a href="info.html" class="nav-link">Infos Pratiques</a>
+                    <a href="info.php" class="nav-link">Infos Pratiques</a>
                 </li>
                 <li class="nav-item mr-1">
                     <a href="contact.php" class="nav-link">Contact</a>
-                </li>
-                <li class="navbar-nav ml-auto">
-                    <a href="registre.php" class="nav-link">Login</a>
                 </li>
             </ul>
         </div>
@@ -216,12 +237,15 @@
 
                 <div class="card-body">
 
-                    <div class="container">
-                        <form class="needs-validation" novalidate>
+                   <div class="container">
+                         <!-- <form class="needs-validation" novalidate> -->
+                        <form class="needs-validation" action="" method="POST">
 
                             <div class="mb-3">
-                                <label for="firstName">Prénom</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                                <label for="name">Prénom</label>
+                               <!--  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>  -->
+                                <input type="text" class="form-control" name="name"  id="name" placeholder="" value="" required>
+
 
                                 <div class="invalid-feedback">
                                     Ce champ ne peut pas être vide.
@@ -230,20 +254,26 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="lastName">Nom</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                                <label for="name1">Nom</label>
+                                <!-- <input type="text" class="form-control" id="lastName" placeholder="" value="" required>  -->
+                                <input type="text" class="form-control" name="name1"  id="name1" placeholder="" value="" required>
 
                                 <div class="invalid-feedback">
-                                    Ce champ ne peut pas être vide.
+                                    Ce champ ne peut pas être vide .
                                 </div>
 
                             </div>
 
                             <div class="mb-3">
                                 <label for="email">Email</span></label>
-                                <input type="email" class="form-control" id="email"
+                              <!--  <input type="email" class="form-control" id="email"
+                                       placeholder=" votreNom@votreDomain.com" required>   -->
+                                <input type="email" class="form-control" name="email"  id="email"
                                        placeholder=" votreNom@votreDomain.com" required>
-
+                               
+                                       <div class="invalid-feedback">
+                                        Ce champ ne peut pas être vide.
+                                </div>
                                 <div class="invalid-feedback">
                                     Entrez un email valide.
                                 </div>
@@ -254,8 +284,8 @@
 
                                 <div class="col-sm-6 mb-1">
                                     <label for="date">Date</label>
-                                    <input type="date" class="custom-select d-block w-100" id="date" required>
-
+                                  <!--  <input type="date" class="custom-select d-block w-100" id="date" required>  -->
+                                  <input type="date" class="custom-select d-block w-100" name="date"  id="date" placeholder="" value="" required>
                                     <div class="invalid-feedback">
                                         Ce champ ne peut pas être vide.
                                     </div>
@@ -264,8 +294,8 @@
 
                                 <div class="col-sm-6 mb-1">
                                     <label for="time">Heure</label>
-                                    <input type="time" class="custom-select d-block w-100" id="time" required>
-
+                                   <input type="time" class="custom-select d-block w-100" id="time" required>  
+                                <!--  <input type="text" class="custom-select d-block w-100" id="time" name="time"  id="time" placeholder="" value="" required> -->
                                     <div class="invalid-feedback">
                                         Ce champ ne peut pas être vide.
                                     </div>
@@ -273,13 +303,25 @@
                                 </div>
 
                             </div>
+                            
+                            <div class="mb-4">
+                              <!--    <button class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#covid"
+                                 name="submit" type="submit">Valider </button>  -->
+                                 <button class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#covid"
+                                name="submit" type="submit" >Valider
+                             </div>
 
+                            
                         </form>
 
-                        <div class="mb-4">
-                            <button class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#covid"
-                                type="submit">Valider </button>
-                        </div>
+                        <?php
+                            function pre_r($array) {
+                                 
+                                 print_r($array);
+                                 
+                            }  
+                        ?> 
+
 
                         <!-- Modal info Covid -->
 
