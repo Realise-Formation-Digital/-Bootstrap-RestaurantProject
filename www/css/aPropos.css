@@ -1,0 +1,12 @@
+.p {
+    display: flex;
+    color: black;
+    text-indent: 30px;
+    text-transform: uppercase; 
+    place-content: center;
+  }
+
+img {
+   margin-left: auto;
+    margin-right: auto;
+  }
