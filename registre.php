@@ -1,4 +1,4 @@
-<?php require 'functions.php'; ?>
+<?php require_once 'functions.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,52 +10,73 @@
     <title>Home Page CopyPasta</title>
 </head>
 
-<!-- Validadtion   -->
+<!-- Validation   -->
 
 <?php
-
     $errors = array();
- 
-if(isset($_POST["submit"])) { // Le formulaire a été envoyer
-    // Vérification du nom 
-    if (empty($_POST["pseudo"]) || !preg_match ('/[a-zA-Z09_]+/', $_POST["pseudo"])) { 
-        $errors['pseudo'] = "Votre nom est invalide ";
-    }
-
-    // Vérification email 
-    if (empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-        echo '<script>alert("Votre adresse email est invalide")</script>';
-        $errors['email'] = "Votre adresse email est invalide";
-    }
-
-    // Vérification password
-    if (empty($_POST["password"]) || $_POST["password"] != $_POST["password_confirm"]){
-        $errors['password'] = "Vous devez rentrer un mot de passe valide";
-    } else {
-
-        $_password_crypt = password_hash ($_POST["password"], PASSWORD_BCRYPT);
-        $_POST["password"] = $_password_crypt;
-        $_POST["password_confirm"] = $_password_crypt;
-       
-    }
-    // debug($errors);
-   //  print_r($_POST);
-
-    if (empty($errors)) {
-    
-       // print_r($_POST);
-          $fp = fopen('users.csv', 'a');
-      
-          fputcsv($fp, [$_POST["pseudo"] , $_POST["email"], $_POST["password"]]);
-          
-          fclose($fp);
-          echo '<script>alert("Votre compte a bien été créé")</script>';
-       }
-}
+        if(isset($_POST["inscription"])) { // vient du fomulaire S'incrire
+            // echo '<script>alert("Vient du formulaire Inscripcion")</script>';      
+            if (empty($_POST["pseudo"]) || !preg_match ('/[a-zA-Z0-9_]+/', $_POST["pseudo"])) {    // Vérification du nom 
+               $errors['pseudo'] = "Votre nom est invalide ";
+            }
+           if (empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {    // Vérification email 
+              echo '<script>alert("Votre adresse email est invalide")</script>';
+              $errors['email'] = "Votre adresse email est invalide";
+            }
+            if (empty($_POST["password"]) || $_POST["password"] != $_POST["password_confirm"]){    // Vérification password
+               $errors['password'] = "Vous devez rentrer un mot de passe valide";
+            } else {   // encrypt password
+               $_password_crypt = password_hash ($_POST["password"], PASSWORD_BCRYPT);
+               $_POST["password"] = $_password_crypt;
+               $_POST["password_confirm"] = $_password_crypt;
+            }
+            // debug($errors);
+            // print_r($_POST); 
+           if (empty($errors)) {     //  save user, email and password in a file
+               $fp = fopen('users.csv', 'a');
+               fputcsv($fp, [$_POST["pseudo"] , $_POST["email"], $_POST["password"]]);
+               fclose($fp);
+               echo '<script>alert("Votre compte a bien été créé")</script>';
+               require 'index.php'; 
+            }
+            unset($_POST);
+            exit;
+        } 
+        else if(isset($_POST["login"])) { // vient du fomulaire Login 
+            // echo '<script>alert("Vient du formulaire  Login")</script>';             
+            // debug($errors);
+            //  print_r($_POST);
+            if (empty($errors)) {         
+                if (($handle = fopen("users.csv", "r")) !== FALSE) {  //the file is not empty
+                    $_email = $_POST["email"];
+                    //   print_r("\n");
+                    //   print_r($_POST["password"]);
+                    //   print_r("\n");                     
+                    $_password = $_POST["password"];
+                    // print_r($_email);
+                    //  print_r("\n");
+                    $_found = False;
+                   // print_r($_password_crypt);
+                   // print_r("\n Line break");
+                    while(!feof($handle)) {
+                        $_line = fgetcsv($handle, 0, ",");
+                        if ($_email == $_line[1] && password_verify($_password, $_line[2])) {  //the email is not in the file
+                            echo '<script>alert("Login accepted")</script>';
+                            $_found = True;
+                        }
+                    }
+                    if (!$_found) {
+                        echo '<script>alert("User name or password invalide")</script>';
+                        require 'index.php';
+                    }
+                    fclose($handle);
+                }
+            }
+            unset($_POST);
+        }
 ?>
 
 <Body>
-
 <!-- banderole vidéo -->
 <header>
     <div class="overlay"></div>
@@ -105,119 +126,107 @@ if(isset($_POST["submit"])) { // Le formulaire a été envoyer
     <!-- Modal Login Button-->
     <!-- <div class="container">  -->
         <ul class="navbar-nav ml-auto"> 
-                 <li class="nav-item mr-1">
+                 <li class="nav-item _buttonmr-1">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                         Login
-                      </button>
+                    </button>
                 </li>
                 <li class="nav-item mr-1">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
                         S'inscrire
-                      </button>
+                    </button>
                 </li>
         </ul>
   <!--   </div> -->
 </nav>
  
 <div class="container">  
-<div class="modal" id="myModal1">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <!-- Formulaire Inscripcion -->
+   <div class="modal" id="myModal1">
+      <div class="modal-dialog">
+           <div class="modal-content">
+              <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">S'inscrire</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+               <!-- Modal Body -->
+               <div class="modal-body">
+                  <!--  <form action="/index.html"  method="post" onsubmit="checkValidity();">  -->      
+                  <form class="needs-validation" action="" method="POST" >    
+                      <div class="form-group">
+                          <label for="nom">Pseudo</span></label>
+                          <input type="text" name="pseudo" class="form-control" placeholder="" required >
+    
+                          <div class="invalid-feedback">
+                             Entrez un email valide.
+                          </div>
+                       </div>
+                  
+                      <div>
+                          <label for="email">Email</span></label>
+                          <input type="text" name="email" class="form-control" placeholder="" required >
   
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">S'inscrire</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
+                          <div class="invalid-feedback">
+                              Entrez un email valide.
+                          </div>
+                        </div>
   
-         <!-- Modal Body -->
-         <!--  -->
-            <div class="modal-body">
-                <!--  <form action="/index.html"  method="post" onsubmit="checkValidity();">  -->
-               
-                <form class="needs-validation" action="" method="POST" >
-                
-                <div class="form-group">
-                      <label for="nom">Pseudo</span></label>
-                      <input type="text" name="pseudo" class="form-control" placeholder="">
-
-                      <div class="invalid-feedback">
-                         Entrez un email valide.
-                      </div>
-                    </div>
-                
-                    <div>
-                      <label for="email">Email</span></label>
-                      <input type="text" name="email" class="form-control" placeholder="">
-
-                      <div class="invalid-feedback">
-                         Entrez un email valide.
-                      </div>
-                    </div>
-
-                    <div>
-                      <label for="Mot de passe">Password:</label>
-                      <input type="password" name="password" class="form-control" placeholder="" minlength="8">
-                    </div>
-                    
-                    <div class=>
-                      <label for="Confirmez votre mot de passe">Password:</label>
-                      <input type="password" name="password_confirm" class="form-control" placeholder="" minlength="8">
-                    </div>
-                    <button type="submit" name="submit" class="btn btn-default">Valider</button>
-                    <!-- <div class="form-group"> -->
-                        <!-- <button type="submit" name="submit" class="btn btn-default">Soumettre</button>  -->
-                       
-                    <!-- </div> -->
-                </form>
+                        <div>
+                          <label for="Mot de passe">Password:</label>
+                          <input type="password" name="password" class="form-control" placeholder="" minlength="8" required >
+                        </div>
+                      
+                      <div class=>
+                          <label for="Confirmez votre mot de passe">Password:</label>
+                          <input type="password" name="password_confirm" class="form-control" placeholder="" minlength="8" required >
+                        </div>
+                      <button type="submit" name="inscription" class="btn btn-default">Valider</button>
+                  </form>
+                </div>
             </div>
-        </div>
+         </div>
     </div>
 </div>
-</div>
+<div class="container">  
+    <!-- Formulaire Login -->
+  <div class="modal" id="myModal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                 <h4 class="modal-title">Login</h4>
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
 
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-  
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Login</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!-- Modal Body -->
+              <div class="modal-body">
+                 <!--  <form action="/index.php"  method="post" onsubmit="checkValidity();">  -->
+                  <form class="needs-validation" action="" method="POST" >
+                      <div class="form-group">
+                           <label for="email">Email</span></label>
+                           <input type="email" class="form-control" id="email autocomplete="username name="email" placeholder=" votreNom@votreDomain.com" required autofocus>
+                           <div class="invalid-feedback">
+                               Entrez un email valide.
+                           </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Password:</label>
+                          <input type="password" class="form-control" id="password" autocomplete="password" name="password" placeholder="votre password" minlength="8" required >
+                        </div>
+                
+                        <button type="submit" name="login" class="btn btn-default">Soumettre</button>
+                    </form>
+                </div>
+           </div>
         </div>
-  
-        <!-- Modal Body -->
-        <div class="modal-body">
-          <!--  <form action="/index.php"  method="post" onsubmit="checkValidity();">  -->
-            <form class="needs-validation" action="/index.php" method="POST" >
-                <div class="form-group">
-                    <label for="email">Email</span></label>
-                    <input type="email" class="form-control" id="email autocomplete="username name="email" 
-                        placeholder=" votreNom@votreDomain.com" required autofocus>
-
-                    <div class="invalid-feedback">
-                        Entrez un email valide.
-                    </div>
-
-                </div>
-                <div class="form-group">
-                  <label for="password">Password:</label>
-                  <input type="password" class="form-control" id="password" autocomplete="password" placeholder="votre password" minlength="8" required >
-                </div>
-                <button type="submit" class="btn btn-default">Soumettre</button>
-              </form>
-            </div>
-      </div>
     </div>
-</div>
+</div>  
 
 
 <!-- LOGO + NAVBAR 2 -->
-
-
 <!-- Section seconde bannière image -->
-
-
 <section id="ban2" class="py-2">
     <div class="container">
 
@@ -319,6 +328,11 @@ if(isset($_POST["submit"])) { // Le formulaire a été envoyer
         crossorigin="anonymous"></script>
 <!-- Scripts Javascript -->       
 <script src="js/app.js"></script>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 
 </Body>
 </html>

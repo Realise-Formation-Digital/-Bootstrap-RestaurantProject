@@ -95,7 +95,7 @@
                     <a href="info.php" class="nav-link">Infos Pratiques</a>
                 </li>
                 <li class="nav-item mr-1">
-                    <a href="contact.php" class="nav-link">Contact</a>
+                    <a href="contact.php" class="nav-link">Se connecter</a>
                 </li>
             </ul>
         </div>
