@@ -1,0 +1,621 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="/css/carteRestaurant.css">
+       <title>Carte du Restaurant</title>
+</head>
+<body>
+
+<!-- banderole vidéo -->
+<header>
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="../BooststrapAbreha/images/Banderole vidéo.mp4" type="video/mp4">
+    </video>
+    <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-white">
+                <h1 class=" display-4"></h1>
+                <p class="lead mb-0"></p>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- LOGO + NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="main-nav">
+    <div class="container">
+        <div class="navbar-logo"><img src="public/images/home/LOGO CopyPasta/logo_transparent.png" style="height: 200px"></div>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-1">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item mr-1">
+                    <a href="apropos.html" class="nav-link">A Propos</a>
+                </li>
+                <li class="nav-item mr-1">
+                    <a href="carteRestaurant.html" class="nav-link">Carte des Plats</a>
+                </li>
+                <li class="nav-item mr-1">
+                    <a href="info.html" class="nav-link">Infos Pratiques</a>
+                </li>
+                <li class="nav-item mr-1">
+                    <a href="contact.php" class="nav-link">Contact</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container banner-container">
+    <div class="row-1">
+        <img id="suggestion" src="public/images/carteRestaurant/Bannières/csm_ButchersTable2_86c7c4aa8e.jpg" class="imagebanniere">
+    </div>
+
+    <div class="row-2">
+        <div class="col">
+            <h1>Suggestion du jour</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Spaghetti terre et mer</h3>
+                <div class="mb-1 text-muted">Incontro della terra e del mar</div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Pasta/Pasta-4.jpg" alt="Pasta-del-giorno-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p class="description">Spaghettis frais maison<br>Sauce truffe noire<br>Parmesan piémontais<br>Tuile
+                            d'encre de seiche</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container banner-container">
+    <div class="row-1">
+        <div class="col">
+            <img src="public/images/carteRestaurant/Antipasti/antipasti-teaser.jpg" class="imagebanniere">
+        </div>
+    </div>
+
+    <div class="row-2">
+        <div class="col">
+            <h1>Antipasti</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Antipasti/Antipasti-1.jpg" alt="Antipasti-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Assortiments de légumes confits<br>Mozzarella di Bufala<br>Charcuteries italiennes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Assiette d'antipasti</h3>
+                <div class="mb-1 text-muted">Départ dans l'aventure italienne</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Tomates mozzarella di Bufala</h3>
+                <div class="mb-1 text-muted">Frâicheur vétégale</div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Antipasti/salade-tomate-mozzarella.jpg" alt="Antipasti-1"
+                             style="width:400px;height:300px" class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Tomates<br>Mozzarella di Buffala<br>Anchois<br>Huile d'olive et basilic</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Antipasti/Bruschetta-1.jpg" alt="Antipasti-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Pain frais maison<br>Pesto vert traditionnel piémontais<br>Anchois de la mer Adriatique</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Bruschetta au pesto et anchois</h3>
+                <div class="mb-1 text-muted">Idéal avec un Limoncello</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container banner-container">
+    <div class="row-1">
+        <div class="col">
+            <img id="primi" src="public/images/carteRestaurant/Bannières/la-pasta-italiana.jpg" class="imagebanniere">
+        </div>
+    </div>
+
+    <div class="row-2">
+        <div class="col">
+            <h1>Primi</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Gnocchi alla Marsala e Pancetta</h3>
+                <div class="mb-1 text-muted">Gourmandise</div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Primi/001-18-Gnocchi-con-pancetta-e-scalogno.webp" alt="Antipasti-1"
+                             style="width:400px;height:300px" class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Gnocchi frais<br>Vino de Marsala<br>Jambon de Pancetta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Primi/gratinaubergine.jpg" alt="Antipasti-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Aubergines<br>Jambon<br>Câpres<br>Oeufs durs<br>Grana padano<br>Mozzarella et sauce
+                            bolognaise maison</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Aubergines parmigiana en gratin</h3>
+                <div class="mb-1 text-muted">Le gratin della Mamma</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Carbonara vera</h3>
+                <div class="mb-1 text-muted">Parce qu'il n'y a pas de crème dans les Carbonara</div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Primi/penne-alla-carbonara-88993-1.jpeg" alt="Antipasti-1"
+                             style="width:400px;height:300px" class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Penne maison<br>Guanciale<br>Parmigiano<br>SENZA CREMA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container banner-container">
+    <div class="row-1">
+        <div class="col">
+            <img src="public/images/carteRestaurant/Bannières/carne-aldi-il-podere.jpg" class="imagebanniere">
+        </div>
+    </div>
+
+    <div class="row-2">
+        <div class="col">
+            <h1>Secondi</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Secondi/1600x1200_saltimbocca-alla-romana.jpg" alt="Antipasti-1"
+                             style="width:400px;height:300px" class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Veau<br>Sauge<br>Sauce glacée prosciutto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Saltinbocca alla Romana</h3>
+                <div class="mb-1 text-muted">Toutes les Saltinbocca mènent à Rome</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Scaloppine al Funghi</h3>
+                <div class="mb-1 text-muted">Balade dans les bois</div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Secondi/scaloppine.webp" alt="Antipasti-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Veau finement découpé<br>Champignons<br>Sauce vin blanc</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Secondi/salmone.webp" alt="Antipasti-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Saumon frais<br>sauté dans une sauce citron<br>sauce vin blanc<br>câpres et persil</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Salmone Piccata</h3>
+                <div class="mb-1 text-muted">Délices de la mer Adriatique</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container banner-container">
+    <div class="row-1">
+        <div class="col">
+            <img src="public/images/carteRestaurant/Bannières/dessert.jpg" class="imagebanniere">
+        </div>
+    </div>
+
+    <div class="row-2">
+        <div class="col">
+            <h1>Desserts</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Panna Cotta</h3>
+                <div class="mb-1 text-muted">Comment résister ?</div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Desserts/panna-cotta.jpg" alt="Antipasti-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Pain frais maison<br>Pesto vert traditionnel piémontais<br>Anchois de la mer Adriatique</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Desserts/Tiramisu-1.jpg" alt="Antipasti-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Pain frais maison<br>Pesto vert traditionnel piémontais<br>Anchois de la mer Adriatique</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Tiramisu</h3>
+                <div class="mb-1 text-muted">Une renommée internationale</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Cantuccini con il caffè</h3>
+                <div class="mb-1 text-muted">Sans café c'est une hérésie</div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Desserts/cantuccini-3.jpg" alt="Antipasti-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Pain frais maison<br>Pesto vert traditionnel piémontais<br>Anchois de la mer Adriatique</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container banner-container">
+    <div class="row-1">
+        <div class="col">
+            <img id="vins" src="public/images/carteRestaurant/Bannières/vino-italiano-1.jpg" class="imagebanniere">
+        </div>
+    </div>
+
+    <div class="row-2">
+        <div class="col">
+            <h1>Vins et spiritueux</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Vino/Fosso-Corno-Montepulciano-d-Abruzzo-Collezione-510x710.jpg"
+                             alt="Antipasti-1" style="width:400px;height:300px" class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Parfait avec un plat de viande rouge</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Montepulciano d’Abruzzo DOP Bio</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Cent’Are Nero d’Avola Sicilia IGT</h3>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Vino/centare.jpg" alt="Antipasti-1" style="width:400px;height:300px"
+                             class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Idéal avec du poisson</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-center">
+
+
+        <div class="col-lg-6">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="public/images/carteRestaurant/Vino/KEBRILLA-GRILLO-TERRE-SICILIANE-VINO-BIOLOGICO-2016-IGP-FINA.jpg"
+                             alt="Antipasti-1" style="width:400px;height:300px" class="rounded-lg">
+                    </div>
+                    <div class="flip-box-back" style="width:400px;height:300px">
+                        <p>Un vin blanc délicieux pour accompagner des légumes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="chef-item">
+                <h3>Grillo Terre Siciliane IGT</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------- Footer ------------>
+<div class="">
+    <section style="height:80px;"></section>
+    <div class="row" style="text-align:center;">
+        <h2></h2>
+    </div>
+
+    <footer class="footer-bs">
+        <div class="row">
+            <div class="col-md-3 footer-brand animated fadeInLeft">
+                <h2 class="footfont">CopyPasta</h2>
+                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies.
+                    Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex
+                    mi ut sem.</p>
+                <p>© 2014 Banda Digital Agency, All rights reserved</p>
+            </div>
+            <div class="col-md-4 footer-nav animated fadeInUp">
+                <h4>Menu —</h4>
+                <div class="col-md-6">
+                    <ul class="pages">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">A Propos</a></li>
+                        <li><a href="#">La Carte des Plats</a></li>
+                        <li><a href="#">Infos Pratiques</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contacts</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2 footer-social animated fadeInDown">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">RSS</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 footer-ns animated fadeInRight">
+                <h4>Newsletter</h4>
+                <p>Pour recevoir toutes les informations concernant le restaurant CopyPasta</p>
+                <p>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Inscrivez-vous...">
+                    <span class="input-group-btn">
+                          <button class="btn btn-default" type="button"><span
+                                  class="glyphicon glyphicon-envelope"></span></button>
+                        </span>
+                </div><!-- /input-group -->
+                </p>
+            </div>
+        </div>
+
+        <a class="gotopbtn" href="#"> <i class="fas fa-arrow-up"></i> </a>
+    </footer>
+    <section style="text-align:center; margin:10px auto;"><p>Designed by Banda Digital Agency <a
+            href="http://enfoplus.net">Dario/Axel/Norah/Brusk/Abreha</a></p></section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</body>
+</html>
